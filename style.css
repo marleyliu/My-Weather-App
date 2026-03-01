@@ -1,9 +1,45 @@
 body {
-
+    
+    font-family: "Sniglet", system-ui;
+  font-weight: 400;
+  font-style: normal;
     background-color: powderblue;
+    opacity: 0; 
+    transition: opacity 1.5s ease; 
 }
 
-h1 {
-
-    color:blue; 
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
+
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.temp-container {
+  display: flex;
+  justify-content: center; /* left - center - right */
+  align-items: center;
+  gap: 40px; 
+  margin: 20px 0;
+}
+
+.min-temp, 
+.max-temp {
+    font-size: 18px;
+}
+
+.current-temp {
+    
+    font-size: 24px;
+    font-weight: bold;
+}
+#weatherIcon {
+    width: 150px;
+}
+

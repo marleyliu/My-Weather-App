@@ -1,4 +1,15 @@
 let weatherData; 
+window.onload = function () {
+    getWeatherByCity("Ottawa");
+    document.body.style.opacity = "1";
+};
+
+function getWeatherByCity(city) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a267729d5793ec95d4ce97539474ea26&units=metric`)
+        .then(response => response.json())
+        .then(data => displayWeather(data))
+        .catch(error => console.error(error));
+}
 async function getCity() {
     var inputCity = document.getElementById("city").value;
     document.getElementById("conditions").innerHTML = ``
@@ -38,11 +49,17 @@ function displayWeather(data) {
 
     document.getElementById("conditions").innerHTML = 
     `
+
     <strong>${data.name}</strong><br>
     ${description.toUpperCase()}<br><br>
-    Current: ${currTemp}°C<br>
-    High: ${highTemp}°C<br>
-    Low: ${lowTemp}°C<br>
+
+
+    <div class = "temp-container">
+        <span class = "min-temp"> Low: ${lowTemp}°C</span>
+        <span class = "current-temp"> Current: ${currTemp}°C</span>
+        <span class = "max-temp"> High: ${highTemp}°C </span>
+    </div>
+    <br>
     Feels Like: ${feelsLike}°C<br>
     Humidity: ${humidity}%<br>
     Wind Speed: ${windSpeed} m/s
